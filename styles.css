@@ -125,6 +125,10 @@ footer {
     padding: 20px; /* Add some padding */
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .floating-box {
     position: absolute;
     width: 30px;
