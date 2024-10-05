@@ -16,10 +16,6 @@ body {
     padding: 20px;
 }
 
-footer {
-    text-align: center; 
-    padding: 20px; 
-}
 
 header {
     background: rgba(76, 0, 153, 0.8);
@@ -95,52 +91,38 @@ nav ul li a:hover {
 .box {
     width: 100%;
     padding: 30px;
-    text-align: center;
+    text-align: center; /* Center text within the box */
     margin-bottom: 60px;
     background-color: rgba(76, 0, 153, 0.2);
     box-shadow: 0 4px 6px rgba(255,0,255,0.1);
     border-radius: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center children horizontally */
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally */
 }
 
 .box img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    border-radius: 12px;
-    margin-top: 30px; 
-    margin: 0 auto; 
-    order: 2; 
-}
-
-
-.box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 8px rgba(255,0,255,0.2);
-}
-
-.box img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    border-radius: 12px;
-    margin-top: 30px; /* Move image below text */
-    order: 2; /* Ensure image appears after text */
+    width: 100%; /* Responsive width */
+    max-width: 600px; /* Limit max width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 12px; /* Round corners */
+    margin: 20px 0; /* Vertical margin for spacing */
 }
 
 .box h3 {
     font-size: 24px;
     margin-bottom: 15px;
     color: #ff00ff;
-    order: 1; /* Ensure title appears before image */
 }
 
 .box p {
     font-size: 18px;
-    order: 1; /* Ensure paragraph appears before image */
+}
+
+footer {
+    text-align: center; /* Center the text */
+    padding: 20px; /* Add some padding */
 }
 
 .floating-box {
