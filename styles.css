@@ -107,7 +107,7 @@ nav ul li a:hover {
     max-width: 600px; /* Limit max width */
     height: auto; /* Maintain aspect ratio */
     border-radius: 12px; /* Round corners */
-    margin: 60px 0; /* Vertical margin for spacing */
+    margin: 40px 0; /* Vertical margin for spacing */
 }
 
 .box h3 {
