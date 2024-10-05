@@ -16,6 +16,11 @@ body {
     padding: 20px;
 }
 
+footer {
+    text-align: center; 
+    padding: 20px; 
+}
+
 header {
     background: rgba(76, 0, 153, 0.8);
     padding: 10px 0; /* Reduced padding to make the header smaller */
