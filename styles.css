@@ -127,6 +127,75 @@ footer {
 
 html {
     scroll-behavior: smooth;
+.button {
+    display: inline-block;
+    background-color: #ff00ff;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.button:hover {
+    background-color: #cc00cc;
+}
+
+.server-box {
+    width: calc(33.33% - 20px);
+    margin: 10px;
+    padding: 20px;
+    background-color: rgba(76, 0, 153, 0.2);
+    box-shadow: 0 4px 6px rgba(255,0,255,0.1);
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+}
+
+.server-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(255,0,255,0.2);
+}
+
+.server-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.server-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add this to your existing media query or create a new one for responsiveness */
+@media (max-width: 768px) {
+    .server-box {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .server-box {
+        width: 100%;
+    }
+}
+
+
 }
 
 .floating-box {
@@ -271,5 +340,6 @@ html {
     font-size: 24px;
     display: flex;
     justify-content: center;
+
     align-items: center;
 }
