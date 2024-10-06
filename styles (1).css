@@ -139,9 +139,16 @@ nav ul li a:hover {
     background-color: #cc00cc;
 }
 
+.server-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: -10px;
+}
+
 .server-box {
-    width: 100%;
-    margin: 20px 0;
+    width: calc(33.33% - 20px);
+    margin: 10px;
     padding: 20px;
     background-color: rgba(76, 0, 153, 0.2);
     box-shadow: 0 4px 6px rgba(255,0,255,0.1);
@@ -326,62 +333,6 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#click-counter-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-#click-counter-button {
-    background-color: #ff00ff;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-#click-counter-button:hover {
-    background-color: #cc00cc;
-}
-
-#shockwave {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,0,255,0.8) 0%, rgba(255,0,255,0) 70%);
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0;
-}
-
-@keyframes shockwaveAnimation {
-    0% {
-        width: 0;
-        height: 0;
-        opacity: 1;
-    }
-    100% {
-        width: 300vw;
-        height: 300vw;
-        opacity: 0;
-    }
-}
-
-#loading-spinner {
-    text-align: center;
-    padding: 20px;
-    font-size: 18px;
-    color: #ff00ff;
 }
 
 @media (max-width: 768px) {
