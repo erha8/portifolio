@@ -16,10 +16,9 @@ body {
     padding: 20px;
 }
 
-
 header {
     background: rgba(76, 0, 153, 0.8);
-    padding: 10px 0; /* Reduced padding to make the header smaller */
+    padding: 10px 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -91,23 +90,28 @@ nav ul li a:hover {
 .box {
     width: 100%;
     padding: 30px;
-    text-align: center; /* Center text within the box */
+    text-align: center;
     margin-bottom: 60px;
     background-color: rgba(76, 0, 153, 0.2);
     box-shadow: 0 4px 6px rgba(255,0,255,0.1);
     border-radius: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; /* Enable flexbox */
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center items horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(255,0,255,0.2);
 }
 
 .box img {
-    width: 100%; /* Responsive width */
-    max-width: 600px; /* Limit max width */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 12px; /* Round corners */
-    margin: 40px 0; /* Vertical margin for spacing */
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 12px;
+    margin: 40px 0;
 }
 
 .box h3 {
@@ -120,13 +124,6 @@ nav ul li a:hover {
     font-size: 18px;
 }
 
-footer {
-    text-align: center; /* Center the text */
-    padding: 20px; /* Add some padding */
-}
-
-html {
-    scroll-behavior: smooth;
 .button {
     display: inline-block;
     background-color: #ff00ff;
@@ -140,6 +137,13 @@ html {
 
 .button:hover {
     background-color: #cc00cc;
+}
+
+.server-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: -10px;
 }
 
 .server-box {
@@ -157,7 +161,6 @@ html {
     animation: fadeInUp 0.5s forwards;
 }
 
-
 .server-box:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 8px rgba(255,0,255,0.2);
@@ -170,18 +173,8 @@ html {
     margin-top: 15px;
 }
 
-/* Add this new style for the Minecraft Servers section */
 #minecraft-servers {
-    padding-top: 80px; /* Add some top padding to account for the fixed header */
-}
-
-}
-
-.server-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: -10px; /* Compensate for the margin on server-box */
+    padding-top: 80px;
 }
 
 @keyframes fadeInUp {
@@ -191,20 +184,13 @@ html {
     }
 }
 
-/* Add this to your existing media query or create a new one for responsiveness */
-@media (max-width: 768px) {
-    .server-box {
-        width: calc(50% - 20px);
-    }
+footer {
+    text-align: center;
+    padding: 20px;
 }
 
-@media (max-width: 480px) {
-    .server-box {
-        width: 100%;
-    }
-}
-
-
+html {
+    scroll-behavior: smooth;
 }
 
 .floating-box {
@@ -228,9 +214,8 @@ html {
 .floating-box:hover {
     transform: scale(1.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5); /* Highlight on hover */
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
 }
-
 
 .floating-box.safe {
     background-color: rgba(0, 255, 0, 0.5);
@@ -255,7 +240,7 @@ html {
     font-size: 50px;
     color: red;
     font-weight: bold;
-    z-index: 10000; /* Ensure it appears above everything */
+    z-index: 10000;
     opacity: 1;
     animation: scale-up 1s ease-in-out;
 }
@@ -283,7 +268,6 @@ html {
         opacity: 0;
     }
 }
-
 
 .disappear {
     animation: disappear 0.5s forwards;
@@ -330,7 +314,6 @@ html {
     display: none;
 }
 
-/* Fireworks styles */
 .firework {
     position: absolute;
     width: 5px;
@@ -349,6 +332,17 @@ html {
     font-size: 24px;
     display: flex;
     justify-content: center;
-
     align-items: center;
+}
+
+@media (max-width: 768px) {
+    .server-box {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .server-box {
+        width: 100%;
+    }
 }
