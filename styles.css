@@ -141,9 +141,10 @@ nav ul li a:hover {
 
 .server-grid {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: -10px;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .server-box {
