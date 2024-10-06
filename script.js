@@ -11,24 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const topBoundary = showcaseRect.bottom;
 
 
-    // Add animation for server boxes
-    const serverBoxes = document.querySelectorAll('.server-box');
-    if (serverBoxes.length > 0) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = `${entry.target.dataset.delay}s`;
-                    entry.target.classList.add('animate');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        serverBoxes.forEach((box, index) => {
-            box.dataset.delay = index * 0.1;
-            observer.observe(box);
-        });
-    }
     function createBox() {
         const box = document.createElement('div');
         box.classList.add('floating-box');
