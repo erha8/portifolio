@@ -10,22 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const showcaseRect = showcase.getBoundingClientRect();
     const topBoundary = showcaseRect.bottom;
 
-    function handleServerBoxAnimations() {
-        const serverBoxes = document.querySelectorAll('.server-box');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        serverBoxes.forEach(box => {
-            observer.observe(box);
-        });
-    }
-
-    handleServerBoxAnimations();
 
     function createBox() {
         const box = document.createElement('div');
