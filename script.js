@@ -1,14 +1,132 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Floating boxes code (unchanged)
     const floatingBoxesContainer = document.getElementById('floating-boxes');
     const fireworksContainer = document.getElementById('fireworks');
-    const numBoxes = Math.floor(Math.random() * 7) + 4; // Random between 4 and 10
+    const numBoxes = Math.floor(Math.random() * 7) + 4;
     let boxes = [];
     let explodableBoxIndex = Math.floor(Math.random() * numBoxes);
 
-    // Get the showcase section to determine the top boundary
     const showcase = document.getElementById('showcase');
     const showcaseRect = showcase.getBoundingClientRect();
     const topBoundary = showcaseRect.bottom;
+
+    // ... (rest of the floating boxes code remains unchanged)
+
+    // Click counter functionality
+    const clickCounterContainer = document.getElementById('click-counter-container');
+    let clickCount = 0;
+
+    function updateClickCounter() {
+        clickCounterContainer.textContent = `This Button has been clicked ${clickCount} times`;
+    }
+
+    function handleButtonClick() {
+        clickCount++;
+        updateClickCounter();
+        
+        // Send the updated count to the server (you'll need to implement this)
+        saveClickCount(clickCount);
+    }
+
+    function saveClickCount(count) {
+        // Implement the logic to save the count to your server
+        // This is a placeholder function
+        console.log('Saving click count:', count);
+    }
+
+    function loadClickCount() {
+        // Implement the logic to load the count from your server
+        // This is a placeholder function that simulates loading
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(Math.floor(Math.random() * 100)); // Simulated count
+            }, 1000);
+        });
+    }
+
+    // Create and append the click counter button
+    const clickButton = document.createElement('button');
+    clickButton.textContent = 'Click me!';
+    clickButton.addEventListener('click', handleButtonClick);
+    clickCounterContainer.appendChild(clickButton);
+
+    // Load initial click count
+    loadClickCount().then((count) => {
+        clickCount = count;
+        updateClickCounter();
+    });
+
+    // Minecraft servers functionality
+    const serverContainer = document.getElementById('server-container');
+
+    const servers = [
+        {
+            name: "FlowerRealms",
+            description: "My biggest server yet, hitting 150+ players online. Gens Tycoon.",
+            image: "pictures/FlowerRealms.png"
+        },
+        {
+            name: "Craftgenz",
+            description: "My first ever Gens Tycoon server. hitting 30+ players at max.",
+            image: "pictures/CraftGenz.gif"
+        },
+        {
+            name: "StrongFight",
+            description: "A custom minecraft gamemode, where you would train, level up your stats & fight with our custom pvp system.",
+            image: "pictures/StrongFight.png"
+        },
+        {
+            name: "UniqueCraft",
+            description: "Survival minecraft server with custom terrerian & economy.",
+            image: "pictures/UniqueCraft.png"
+        },
+        {
+            name: "BestBox3",
+            description: "My first ever server. This was a box server, where you would mine ores and upgrade your gear.",
+            image: "pictures/BestBox3.png"
+        }
+    ];
+
+    function createServerBox(server) {
+        const serverBox = document.createElement('div');
+        serverBox.classList.add('server-box');
+        serverBox.innerHTML = `
+            <h3>${server.name}</h3>
+            <p>${server.description}</p>
+            <img src="${server.image}" alt="${server.name} Server">
+        `;
+        return serverBox;
+    }
+
+    function loadServers() {
+        servers.forEach(server => {
+            const serverBox = createServerBox(server);
+            serverBox.style.opacity = '0';
+            serverBox.style.transform = 'translateY(20px)';
+            serverContainer.appendChild(serverBox);
+        });
+
+        // Trigger the animation for each server box when it comes into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.transition = 'opacity 0.5s, transform 0.5s';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.server-box').forEach(box => {
+            observer.observe(box);
+        });
+    }
+
+    // Load all servers at once
+    if (serverContainer) {
+        loadServers();
+    }
 
 
     function createBox() {
